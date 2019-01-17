@@ -18,10 +18,10 @@ public class CertificateController {
     private CertificateService certificateService;
 
     // 处理查询证书页面请求
-    @RequestMapping(value = {"/certquery"}, method = {RequestMethod.GET})
+    @RequestMapping(value = {"/certquery/"}, method = {RequestMethod.GET})
     public String showCertQueryPages(Model model) {
-        model.addAttribute("msg", "");
-        return "";
+        model.addAttribute("msg", "this is certQuery");
+        return "authenticate";
     }
 
     // 处理查询证书请求
