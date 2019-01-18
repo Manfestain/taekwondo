@@ -1,72 +1,5 @@
 
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<TITLE>证书查询 - 中国跆拳道协会官方网站 - 华奥星空</TITLE>
-<link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../styles/font-awesome.css">
-<link rel="stylesheet" type="text/css" href="../styles/style.css">
-<link href="../styles/cdn-boot-font-awesome.min.css" rel="stylesheet">
-</head>
-
-<body>
-<div class="page_header hidden-xs">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="page_logo">
-          <div class="logo"> <img class="" src="http://xhjs.sports.cn/taekwondo/img/logo.png" /> </div>
-          <div class="title">
-            <h1>中国跆拳道协会官方网站</h1>
-            <p>Official Website of Chinese Taekwondo Association</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!--/.page_header-->
-<div class="page_menu">
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <div class="visible-xs-inline-block"><span class="title">中国跆拳道协会官网</span></div>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"> <i class="fa fa-2x fa-navicon"></i> </button>
-      </div>
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="/">首页 <span class="sr-only"></span></a></li>
-          <li><a href="/about/">关于协会</a></li>
-          <li><a href="/gzgd/">规则规定</a></li>
-          <li><a href="/notices/">协会公告</a></li>
-          <li class="menu_dropdown"> <a href="/news/" class="dropdown-toggle" data-hover="dropdown" data-delay="0" data-close-others="false">新闻资讯 <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="/xwdt/">新闻动态</a></li>
-              <li><a href="/jctp/">高清图片</a></li>
-              <li><a href="/spjj/">精彩视频</a></li>
-            </ul>
-          </li>
-          <li class="menu_dropdown"> <a href="/memberservices/" class="dropdown-toggle" data-hover="dropdown" data-delay="0" data-close-others="false">会员服务 <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="/memberservices/check/">会员查询</a></li>
-              <li><a href="/memberservices/gyms/">考试中心</a></li>
-              <li><a href="/zhengshu/">级位段位认证</a></li>
-              <li><a href="/memberservices/examiners/">晋级官认证</a></li>
-            </ul>
-          </li>
-          <li><a href="#">竞赛专区</a></li>
-          <li><a href="#">中国之队</a></li>
-          <li><a href="#">地方协会</a></li>
-          <li><a href="#">联系我们</a></li>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse --> 
-    </div>
-  </nav>
-</div>
+<#include "./header.ftl">
 
 <!--/.page_menu-->
 <div class="page_bodyer">
@@ -106,7 +39,7 @@
                   <h4 class="text-center text-primary"><i class="fa fa-certificate"></i> 级位查询结果</h4>
                   <div id="certificate_resaults_jw" class="certificate_resaults">
                     <form class="form-horizontal">
-                      <img width="100" height="100" src="../images/logo.jpg"/>
+                      <img width="700" height="300" src="../images/logo.png"/>
                     </form>
                   </div>
                 </div>
@@ -118,33 +51,8 @@
     </div>
   </div>
   </div>
-<!--/.page_bodyer-->
-<div class="page_footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-2">
-        <div class="logo"><img src="http://xhjs.sports.cn/taekwondo/img/logo.png" alt="CTA_logo" /></div>
-      </div>
-      <div class="col-sm-6">中国跆拳道协会版权所有 | ICP经营许可证：京ICP证030713号<br>
-        网上传播视听节目许可证 编号：0105094 | 发证机关：国家广播电影电视总局<br>
-        客服及报障电话：4008102008 <br>
-        客服及报障邮箱：operationcenter@sports.cn</div>
-      <div class="col-sm-4"><span>联系协会</span><br>
-        联系人：周女士<br>
-        电话：(010)87182942<br>
-        传真：(010)87182944<br>
-        地址：北京市东城区体育馆路甲2-3号 邮编：100061</div>
-    </div>
-  </div>
-</div>
-<!--/.page_footer-->
-<div class="copyright">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12"> 本网站由华奥星空(北京)信息技术有限公司提供制作及技术支持 | <a href="#">关于华奥星空</a> - <a href="#">隐私保护</a> - <a href="#">广告服务</a> - <a href="#">招聘信息</a> - <a href="#">联系我们</a> </div>
-    </div>
-  </div>
-</div>
+
+<#include "./footer.ftl">
 <script src="../scripts/jquery-1.12.4.min.js"></script>
 <script src="../scripts/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script src="../scripts/bootstrap-hover-dropdown.min.js"></script>

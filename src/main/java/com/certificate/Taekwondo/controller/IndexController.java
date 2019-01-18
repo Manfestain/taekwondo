@@ -16,4 +16,15 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping(path = {"/introduce/"}, method = {RequestMethod.GET})
+    public String showIntroducePages(Model model) {
+        model.addAttribute("msg", "show introduce page");
+        return "introduce";
+    }
+    @RequestMapping(path = {"/organization/"}, method = {RequestMethod.GET})
+    public String showOrganizationPages(Model model) {
+        model.addAttribute("msg", "show introduce page");
+        return "organization";
+    }
+
 }
