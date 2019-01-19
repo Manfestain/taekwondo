@@ -1,5 +1,5 @@
-package com.certificate.Taekwondo;
-
+//package com.certificate.Taekwondo;
+//
 //import com.certificate.Taekwondo.service.CertificateService;
 //import org.junit.Test;
 //import org.junit.runner.RunWith;

@@ -85,4 +85,11 @@ public class Member {
     public String getRights() {
         return rights;
     }
+
+    public String toString() {
+        String result = "Number:" + getNumber() + "\n" + "Name:" + getName() + "\n" + "Phone:" + getPhone() + "\n";
+        result += "Rank:" + getRank() + "\n" + "Points:" + getPoints() + "\n" + "Rights:" + getRights() + "\n";
+        result += "Date:" + getDate();
+        return result;
+    }
 }

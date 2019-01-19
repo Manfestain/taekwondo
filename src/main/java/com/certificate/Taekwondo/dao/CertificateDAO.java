@@ -10,7 +10,6 @@ public interface CertificateDAO {
     String TABLE_NAME = "certificate";
     String INSERT_FIELDS = "number, name, gender, rank, birthday, examiner, date";
     String SELECT_FIELDS = "id, " + INSERT_FIELDS;
-//    String FIELDS_NAME = "rank";
 
     // 插入整条数据
     @Insert({"insert into", TABLE_NAME, "(", INSERT_FIELDS,
