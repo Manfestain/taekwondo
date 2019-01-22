@@ -2,9 +2,15 @@ package com.certificate.Taekwondo.service;
 
 import com.certificate.Taekwondo.dao.CertificateDAO;
 import com.certificate.Taekwondo.model.Certificate;
+import com.certificate.Taekwondo.model.Member;
+import com.certificate.Taekwondo.utils.ExcelUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
@@ -12,8 +18,8 @@ public class CertificateService {
     @Autowired
     private CertificateDAO certificateDAO;
 
-    // 添加证书信息
-    public Map<String, String> addCertificate(String name,
+    // 添加单个证书信息
+    public Map<String, String> addSingleCertificate(String name,
                                               String number,
                                               String gender,
                                               Date birthday,
@@ -32,6 +38,29 @@ public class CertificateService {
 
         certificateDAO.insertCertificate(certificate);
         map.put("msg", "证书信息录入完成");
+        return map;
+    }
+
+    // 添加多个证书信息
+    public Map<String, String> addExcelCertificate(MultipartFile file) {
+        Map<String, String> map = new HashMap<String, String>();
+        List<Object> list = ExcelUtil.readExcel(file);
+        Certificate certificate = new Certificate();
+        int memberNum;
+        for(memberNum=0; memberNum < list.size(); ++memberNum) {
+            List<String> info = list.get(memberNum);
+            certificate.setName(info.get(0));
+            certificate.setBirthday(stringToDate(info.get(1)));
+            certificate.setExaminer(info.get(2));
+            certificate.setDate(stringToDate(info.get(3));
+            certificate.setNumber(info.get(5));
+            certificateDAO.insertCertificate(certificate);
+        }
+        if (memberNum == list.size()) {
+            map.put("msg", "添加证书信息成功！");
+        } else {
+            map.put("msg", "添加证书信息失败！");
+        }
         return map;
     }
 
@@ -71,6 +100,18 @@ public class CertificateService {
 
         map.put("msg", "信息更新出错");
         return map;
+    }
+
+    public Date stringToDate(String string) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = null;
+        try {
+            date = dateFormat.parse(string);
+        } catch (ParseException e) {
+            e.getMessage();
+        }
+        return date;
+
     }
 
 }

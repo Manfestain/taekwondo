@@ -6,7 +6,7 @@ import com.itextpdf.text.pdf.*;
 
 import java.io.*;
 
-public class CreateCertificatePDF {
+public class PDFUtil {
     static String fontPath = "D:/WorkSpace/JavaCode/Taekwondo/src/main/java/com/certificate/Taekwondo/utils/font/simsun.ttc,1";
     static String templateName = "D:\\WorkSpace\\JavaCode\\Taekwondo\\src\\main\\resources\\images\\demo.pdf";
     public static final String NAME = "STSong-Light";
@@ -14,7 +14,7 @@ public class CreateCertificatePDF {
     public static final int SIZE = 12;
 
     // 根据pdf模板填充信息，生成证书的pdf
-    public FileOutputStream createCertPDF(Certificate certificate, FileOutputStream fileOutputStream) {
+    public static FileOutputStream createCertPDF(Certificate certificate, FileOutputStream fileOutputStream) {
         PdfReader reader = null;
         PdfStamper stamper = null;
         PdfContentByte pdfContentByte = null;
