@@ -5,6 +5,7 @@ import com.certificate.Taekwondo.service.CertificateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,6 +36,13 @@ public class CertificateController {
             model.addAttribute("msg", "无查询结果，请核对证书编号重新查询！");
         }
         return "";
+    }
+
+    // 处理二维码请求
+    @RequestMapping(value = {"/cert/{certnumber}"}, method = {RequestMethod.GET})
+    public String showQRcodeResult(Model model,
+                                   @PathVariable("certnumber") String number) {
+        
     }
 
 }

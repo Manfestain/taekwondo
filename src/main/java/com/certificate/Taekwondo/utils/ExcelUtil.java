@@ -19,9 +19,9 @@ public class ExcelUtil {
     private final static String xlsx = "xlsx";
 
     // 读取Excel文件信息
-    public static List<Object> readExcel(MultipartFile file) {
+    public static List<List> readExcel(MultipartFile file) {
         Workbook workbook = getWorkBook(file);
-        List<Object> list = new ArrayList<Object>();
+        List<List> list = new ArrayList<List>();
         if(workbook != null) {
             for(int sheetNum=0; sheetNum < workbook.getNumberOfSheets(); ++sheetNum) {
                 Sheet sheet = workbook.getSheetAt(sheetNum);

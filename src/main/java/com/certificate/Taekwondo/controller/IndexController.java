@@ -1,13 +1,21 @@
 package com.certificate.Taekwondo.controller;
 
+import com.certificate.Taekwondo.service.CertificateService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Map;
 
 
 @Controller
 public class IndexController {
+    @Autowired
+    private CertificateService certificateService;
 
     @RequestMapping(path={"/"}, method = {RequestMethod.GET})
     public String index(Model model){
@@ -25,6 +33,19 @@ public class IndexController {
     public String showOrganizationPages(Model model) {
         model.addAttribute("msg", "show introduce page");
         return "organization";
+    }
+
+    @RequestMapping(path = {"/file/"}, method = {RequestMethod.GET})
+    public String file(Model model) {
+        return "uploadfile";
+    }
+
+    @RequestMapping(path = {"/upload/"}, method = {RequestMethod.POST})
+    public String uploadFile(Model model,
+                             @RequestParam("excel_file") MultipartFile excelFile) {
+        Map<String, String> map = certificateService.addExcelCertificate(excelFile);
+        model.addAttribute("map", map);
+        return "about";
     }
 
 }

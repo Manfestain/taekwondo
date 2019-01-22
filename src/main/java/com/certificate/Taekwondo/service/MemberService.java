@@ -2,12 +2,14 @@ package com.certificate.Taekwondo.service;
 
 import com.certificate.Taekwondo.dao.MemberDAO;
 import com.certificate.Taekwondo.model.Member;
+import com.certificate.Taekwondo.utils.DateUtil;
+import com.certificate.Taekwondo.utils.ExcelUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.InputStream;
+import java.util.*;
 
 @Service
 public class MemberService {
@@ -30,8 +32,8 @@ public class MemberService {
         return rankContent.get(rank).toString();
     }
 
-    // 添加会员
-    public Map<String, String>addMember(String number,
+    // 添加单个会员
+    public Map<String, String>addSingleMember(String number,
                                         String name,
                                         String gender,
                                         String phone,
@@ -53,6 +55,32 @@ public class MemberService {
 
         map.put("msg", "会员添加成功");
         memberDAO.insertMember(member);
+        return map;
+    }
+
+    // 解析excel文件，添加多个member
+    public Map<String, String> addExcelMember(MultipartFile file) {
+        Map<String, String> map = new HashMap<String, String>();
+        List<List> list = ExcelUtil.readExcel(file);
+        Member member = new Member();
+        int memberNum;
+        for(memberNum=0; memberNum < list.size(); ++memberNum) {
+            List<String> info = new ArrayList<String>();
+            member.setName(info.get(0));
+            member.setGender(info.get(1));
+            member.setPhone(info.get((2)));
+            member.setNumber(info.get(2));
+            member.setPoints(Integer.parseInt(info.get(3)));
+            member.setRank(info.get(4));
+            member.setRights(rankMap(info.get(4)));
+            member.setDate(DateUtil.stringToDate(info.get(5)));   // 入会时间
+            memberDAO.insertMember(member);
+        }
+        if(memberNum == list.size()) {
+            map.put("msg", "会员信息录入成功！");
+        } else {
+            map.put("msg", "会员信息录入失败！");
+        }
         return map;
     }
 
