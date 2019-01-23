@@ -67,16 +67,9 @@ public class CertificateService {
     }
 
     // 根据证书编号查询证书
-    public Map<String, Object> selectCertificateByNumber(String number) {
-        Map<String, Object> map = new HashMap<String, Object>();
+    public Certificate selectCertificateByNumber(String number) {
         Certificate certificate = certificateDAO.selectCertificateByNumber(number);
-        if(certificate != null) {
-            map.put("certificate", certificate);
-            map.put("msg", "success");
-        }else {
-            map.put("msg", "failed");
-        }
-        return map;
+        return certificate;
     }
 
     // 更新证书信息
