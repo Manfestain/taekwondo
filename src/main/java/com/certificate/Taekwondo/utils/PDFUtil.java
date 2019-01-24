@@ -84,6 +84,7 @@ public class PDFUtil {
         certificate.setExaminer("谭文强");
 
         byte[] bytes = createCertPDF(certificate, "asdhf");
+
     }
 }
 

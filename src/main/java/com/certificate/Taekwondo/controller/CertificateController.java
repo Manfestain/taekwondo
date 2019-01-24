@@ -12,9 +12,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Date;
 import java.util.List;
@@ -59,9 +61,10 @@ public class CertificateController {
                              HttpServletResponse response) {
         Certificate certificate = certificateService.selectCertificateByNumber(number);
         byte[] bytes= PDFUtil.createCertPDF(certificate, number);
-        System.out.println(bytes);
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
         try {
-            response.getOutputStream().write(bytes);
+            BufferedImage bufferedImage = ImageIO.read(byteArrayInputStream);
+            response.getOutputStream().write(bufferedImage);
         } catch (Exception e) {
             e.getMessage();
         }
