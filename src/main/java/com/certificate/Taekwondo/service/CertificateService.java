@@ -21,7 +21,7 @@ public class CertificateService {
     // 添加单个证书信息
     public Map<String, String> addSingleCertificate(String name,
                                               String number,
-                                              String gender,
+                                              String institution,
                                               Date birthday,
                                               String rank,
                                               String examiner,
@@ -30,7 +30,7 @@ public class CertificateService {
         Certificate certificate = new Certificate();
         certificate.setNumber(number);
         certificate.setName(name);
-        certificate.setGender(gender);
+        certificate.setInstitution(institution);
         certificate.setBirthday(birthday);
         certificate.setRank(rank);
         certificate.setExaminer(examiner);
@@ -48,12 +48,13 @@ public class CertificateService {
         Certificate certificate = new Certificate();
         int certNum;
         for(certNum=0; certNum < list.size(); ++certNum) {
+
             List<String> info = list.get(certNum);
             certificate.setName(info.get(0));
             certificate.setBirthday(DateUtil.stringToDate(info.get(1)));    // 时间-出生日期
             certificate.setExaminer(info.get(2));
             certificate.setDate(DateUtil.stringToDate(info.get(3)));   // 时间-证书时间
-            certificate.setGender(info.get(4));
+            certificate.setInstitution(info.get(4));   // 发证机构
             certificate.setNumber(info.get(5));
             certificate.setRank(info.get(6));
             certificateDAO.insertCertificate(certificate);

@@ -7,7 +7,7 @@ public class Certificate {
     private int id;
     private String number;   // 证书编号，字母+数字
     private String name;
-    private String gender;
+    private String institution;   // 发证道馆
     private String rank;   // 级位
     private Date birthday;
     private String examiner;   // 监考官
@@ -29,8 +29,8 @@ public class Certificate {
         return name;
     }
 
-    public String getGender() {
-        return gender;
+    public String getInstitution() {
+        return institution;
     }
 
     public String getRank() {
@@ -57,8 +57,8 @@ public class Certificate {
         this.name = name;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setInstitution(String institution) {
+        this.institution = institution;
     }
 
     public void setRank(String rank) {

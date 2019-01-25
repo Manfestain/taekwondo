@@ -64,7 +64,7 @@ public class CertificateController {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
         try {
             BufferedImage bufferedImage = ImageIO.read(byteArrayInputStream);
-            response.getOutputStream().write(bufferedImage);
+            response.getOutputStream().write(bytes);
         } catch (Exception e) {
             e.getMessage();
         }

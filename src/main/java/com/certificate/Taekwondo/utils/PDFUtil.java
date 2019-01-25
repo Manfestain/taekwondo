@@ -47,7 +47,7 @@ public class PDFUtil {
             pdfContentByte.setTextMatrix(100, 200);   // 姓名
             pdfContentByte.showText(certificate.getName());
             pdfContentByte.setTextMatrix(100, 300);   // 性别
-            pdfContentByte.showText(certificate.getGender());
+            pdfContentByte.showText(certificate.getInstitution());
             pdfContentByte.setTextMatrix(100, 400);   // 生日
             pdfContentByte.showText(certificate.getBirthday().toString());
             pdfContentByte.setTextMatrix(100, 500);   // 监考官
@@ -76,7 +76,7 @@ public class PDFUtil {
     public static void main(String[] args) {
         Certificate certificate = new Certificate();
         certificate.setName("汪涵与");
-        certificate.setGender("女");
+        certificate.setInstitution("易道天下武道教育");
         certificate.setNumber("WHY120988943623");
         certificate.setRank("六级");
         certificate.setBirthday(new Date());
