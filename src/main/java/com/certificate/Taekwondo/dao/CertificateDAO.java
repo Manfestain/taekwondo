@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface CertificateDAO {
     String TABLE_NAME = "certificate";
-    String INSERT_FIELDS = "number, name, institution, rank, birthday, examiner, date";
+    String INSERT_FIELDS = "number, name, institution, grade, birthday, examiner, date";
     String SELECT_FIELDS = "id, " + INSERT_FIELDS;
 
     // 插入整条数据
