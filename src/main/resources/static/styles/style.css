@@ -55,7 +55,7 @@ body{ background:#ffffff; background-image:url(../img/page_bg.jpg),url(../img/pa
 .page_logo{ overflow:auto; padding:15px 0;}
 .page_logo .logo{ float:left; margin-right:10px;}
 .page_logo .logo img{ width:96px; height:auto; vertical-align:middle;}
-.page_logo .title{ float:left; color:#004aa0; text-shadow:#333 3px 3px 5px;}
+.page_logo .title{ float:left; color:#4B0082; text-shadow:#333 3px 3px 5px;}
 .page_logo .title p{ font-size:1.2em;}
 
 .navbar-default {background: #004aa0;filter: Alpha(opacity=60);background: rgba(0, 74, 160, 0.85) !important;border:none;}
