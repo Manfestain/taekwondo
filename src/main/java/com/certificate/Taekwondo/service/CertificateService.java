@@ -50,6 +50,10 @@ public class CertificateService {
         for(certNum=0; certNum < list.size(); ++certNum) {
 
             List<String> info = list.get(certNum);
+//            for(int i=0; i<info.size(); ++i) {
+//                System.out.println(info.get(i));
+//                System.out.println('\n');
+//            }
             certificate.setName(info.get(0));
             certificate.setBirthday(DateUtil.stringToDate(info.get(1)));    // 时间-出生日期
             certificate.setExaminer(info.get(2));

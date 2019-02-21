@@ -3,7 +3,7 @@
 --   `number` VARCHAR(128) NOT NULL,
 --   `name` VARCHAR(60) NOT NULL,
 --   `institution` VARCHAR(128) NOT NULL,
---   `rank` VARCHAR(45) NOT NULL,
+--   `grade` VARCHAR(128) NOT NULL,
 --   `birthday` DATETIME NOT NULL,
 --   `examiner` VARCHAR(60) NOT NULL,
 --   `date` DATETIME NOT NULL,
@@ -43,3 +43,4 @@
 --   PRIMARY KEY (`id`),
 --   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 -- ENGINE=InnoDB DEFAULT CHARSET=utf8;
+

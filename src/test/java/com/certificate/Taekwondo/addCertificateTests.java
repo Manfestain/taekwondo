@@ -26,10 +26,7 @@ public class addCertificateTests {
     @Test
     public void insertCertificate() {
         String number = "ZXD15481432336309";
-//        Certificate certificate = certificateDAO.selectCertificateByNumber(number);
-        Certificate certificate = certificateService.selectCertificateByNumber(number);
-        System.out.println(certificate.getName());
-        System.out.println(certificate.getRank());
+
 
     }
 }
