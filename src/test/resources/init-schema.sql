@@ -24,3 +24,22 @@
 --   PRIMARY KEY (`id`),
 --   UNIQUE INDEX `number_UNIQUE` (`number` ASC)
 -- )ENGINE=InnoDB CHARSET=gbk;
+
+-- CREATE TABLE `taekwondo`.`user` (
+--   `id` INT NOT NULL AUTO_INCREMENT,
+--   `username` VARCHAR(45) NOT NULL,
+--   `password` VARCHAR(45) NOT NULL,
+--   `salt` VARCHAR(25) NOT NULL,
+--   PRIMARY KEY (`id`),
+--   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+-- ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- CREATE TABLE `taekwondo`.`login_ticket` (
+--   `id` INT NOT NULL AUTO_INCREMENT,
+--   `user_id` INT NOT NULL,
+--   `expired` DATETIME NOT NULL,
+--   `status` INT NOT NULL,
+--   `ticket` VARCHAR(60) NOT NULL,
+--   PRIMARY KEY (`id`),
+--   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+-- ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <TITLE>跆拳道九段联盟</TITLE>
+<link rel="shortcut  icon" type="image/x-icon" href="../images/icon/icon.ico" media="screen"  />
 <link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../styles/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="../styles/style.css">
