@@ -1,51 +1,26 @@
 <!DOCTYPE html>
-<html lang="zh-CN"
-      class="is-AppPromotionBarVisible cssanimations csstransforms csstransitions flexbox no-touchevents no-mobile">
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="renderer" content="webkit">
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>世界跆拳道九段联盟-管理页</title>
-    <link rel="dns-prefetch" href="">
-    <link rel="stylesheet" type="text/css" href="../styles/login.css">
+    <meta charset="UTF-8">
+    <title>跆拳道九段联盟-管理页</title>
+    <link rel="shortcut  icon" type="image/x-icon" href="../images/icon/icon.ico" media="screen"  />
+    <link rel="stylesheet" type="text/css" href="../styles/login.css"/>
+    <script type="text/javascript" src="../scripts/login.js"></script>
 </head>
-<body class="zhi  no-auth">
-<div class="index-main">
-    <div class="index-main-body">
-        <div class="index-header">
-            <!--<h1 class="logo hide-text"><img src="../images/logo.jpg" alt=""></h1>-->
-            <h2 class="subtitle">
-                <!--<#if msg??>-->
-                    <!--${msg}-->
-                <!--<#else>-->
-                <!--<font face="黑体" size="5" color="#000000">世界跆拳道九段联盟</font>-->
-                <!--</#if>-->
-            </h2>
+ 
+<body>
+<div id="login_frame">
+    <p id="image_logo"><img src="../images/logo.png" height="120" ></p>
+    <form method="post" action="/login/">
+ 
+        <p><label class="label_input">用户名</label><input type="text" id="username" class="text_field"/></p>
+        <p><label class="label_input">密码</label><input type="text" id="password" class="text_field"/></p>
+ 
+        <div id="login_control" align="center">
+            <input type="button" id="btn_login" value="登录" onclick="login();"/>
         </div>
-        <#if ticket??>
-            ${ticket}
-        <#else>
-            ${ticket}
-        </#if>
-        <div class="desk-front sign-flow clearfix sign-flow-simple">
-            <div class="view view-signin" data-za-module="SignInForm" style="display: block;">
-                <form action="/login/" id="loginform" method="post">
-                    <div class="group-inputs">
-                        <div class="email input-wrapper">
-                            <input type="text" name="username" aria-label="用户名" placeholder="用户名" required="">
-                        </div>
-                        <div class="input-wrapper">
-                            <input type="password" name="password" aria-label="密码" placeholder="密码" required="">
-                        </div>
-                    </div>
-                    <div class="button-wrapper command clearfix">
-                        <button class="sign-button submit" type="submit" onclick="form=document.getElementById('loginform');form.action='/login/'">登录</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    </form>
 </div>
+ 
 </body>
 </html>

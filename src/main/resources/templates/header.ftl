@@ -44,19 +44,19 @@
             <ul class="dropdown-menu">
               <li><a href="/introduce/">联盟简介</a></li>
               <li><a href="/organization/">组织架构</a></li>
-              <li><a href="/zhengshu/">成员简介</a></li>
+              <li><a href="#">成员简介</a></li>
             </ul>
           </li>
           <li class="menu_dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="0" data-close-others="false">资讯中心 <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="/newsdir/">新闻动态</a></li>
-              <li><a href="/xhdt/">联盟动态</a></li>
-              <li><a href="/xhdt/">联盟公告</a></li>
+              <li><a href="#">新闻动态</a></li>
+              <li><a href="#">联盟动态</a></li>
+              <li><a href="#">联盟公告</a></li>
             </ul>
           </li>
           <li class="menu_dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="0" data-close-others="false">会员服务 <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="/memberquery/">会员查询</a></li>
+              <li><a href="#">会员查询</a></li>
               <li><a href="/memberquery/gyms/">加盟权益</a></li>
               <li><a href="/memberquery/gyms/">会员晋级</a></li>
             </ul>
@@ -64,7 +64,7 @@
           <li class="menu_dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="0" data-close-others="false">公共服务 <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="/certquery/">级位查询</a></li>
-              <li><a href="/memberservices/gyms/">赛事中心</a></li>
+              <li><a href="#">赛事中心</a></li>
             </ul>
           </li>
           <li><a href="#">联系我们</a></li>
