@@ -12,6 +12,10 @@
     <link href="../styles/cdn-boot-font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="../scripts/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="../scripts/jquery.media.js"></script>
+    <style>
+        body{ text-align:center}
+        #divcss5{margin:0 auto;}
+    </style>
 </head>
 <body>
 <div class="page_header hidden-xs" style="background: #00aa9a ">
@@ -29,12 +33,15 @@
         </div>
     </div>
 </div>
-<div id="_div_embed" class="x-hidden" align="center" style="vertical-align: middle;">
-            <embed id="_embed" type="application/pdf">
+
+<div id="divcss5">
+    <br><br>
+    <img id="imageid" height="100%" />
 </div>
 <script>
-    document.getElementById('_embed').src = "/showPdf/${certId}";
+    var fullurl = '/cert/show/${certId}';
+    image = document.getElementById("imageid");
+    image.src = fullurl;
 </script>
-
 </body>
 </html>

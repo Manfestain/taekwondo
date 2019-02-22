@@ -3,22 +3,25 @@ package com.certificate.Taekwondo.utils;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.text.SimpleDateFormat;
 
 import javax.imageio.ImageIO;
 
+import com.certificate.Taekwondo.model.Certificate;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 // 通过对证书的图片模板操作，生成证书图片
 public class ImageUtil {
-    private static String templatePath = "d:\\psb.jpg";
+    private static String templatePath = "d:\\certmodel.jpg";
     private static String fontName = "微软雅黑";
     private static int fontStyle = Font.PLAIN;
-    private static int fontSize = 30;
+    private static int fontSize = 20;
 
 
     // 根据图片模板，填充对应证书信息, 返回字节流
-    public static byte[] pressText(String pressText, int x, int y) {
+    public static byte[] pressText(Certificate certificate) {
+        System.out.println(certificate.getName());
         Color color = new Color(89, 89, 89);
         File imgFile = new File(templatePath);   // 加载图片模板
         Image sources = null;
@@ -44,8 +47,19 @@ public class ImageUtil {
         graphics.drawImage(sources, 0, 0, width, height, null);   // 画目标图片
 
         graphics.setColor(color);   // 画文字水印
-        graphics.setFont(new Font(fontName, fontStyle, fontSize));
-        graphics.drawString(pressText, x, y);
+
+        graphics.setFont(new Font("黑体", fontStyle, fontSize));
+        graphics.drawString(certificate.getGrade(), 383, 245);   // 级位
+
+        graphics.setFont(new Font(fontName, fontStyle, 15));
+        graphics.drawString(certificate.getNumber(), 250, 300);   // 编号
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        graphics.drawString(dateFormat.format(certificate.getDate()), 541, 373);   // 发证日期
+
+        graphics.setFont(new Font(fontName, fontStyle, 17));
+        graphics.drawString(certificate.getName(), 544, 300);   // 姓名
+        graphics.drawString(certificate.getExaminer(), 277, 373);   // 考官
+
         graphics.dispose();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -60,19 +74,19 @@ public class ImageUtil {
     /**
      * @param args
      */
-    public static void main(String[] args) {
-        ByteArrayOutputStream byteArrayOutputStream = null;
-        try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bytes = ImageUtil.pressText("IT小奋斗", 10, 30);
-            ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-            BufferedImage bi1 = ImageIO.read(bais);
-            File file2 = new File("d:/result.jpg");
-            ImageIO.write(bi1, "jpg", file2);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
+//    public static void main(String[] args) {
+//        ByteArrayOutputStream byteArrayOutputStream = null;
+//        try {
+//            byteArrayOutputStream = new ByteArrayOutputStream();
+//            byte[] bytes = ImageUtil.pressText("IT小奋斗", 10, 30);
+//            ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+//            BufferedImage bi1 = ImageIO.read(bais);
+//            File file2 = new File("d:/result.jpg");
+//            ImageIO.write(bi1, "jpg", file2);
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
 }

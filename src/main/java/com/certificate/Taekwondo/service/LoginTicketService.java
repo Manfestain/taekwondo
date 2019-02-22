@@ -17,7 +17,6 @@ public class LoginTicketService {
     // 根据票据获取用户Id
     public int getUserIdByTicket(String ticket) {
         LoginTicket loginTicket = loginTicketDAO.selectByTicket(ticket);
-        System.out.println("this is ticketService");
         return loginTicket.getUserId();
     }
 

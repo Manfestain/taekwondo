@@ -32,7 +32,7 @@ public class CertificateService {
         certificate.setName(name);
         certificate.setInstitution(institution);
         certificate.setBirthday(birthday);
-        certificate.setRank(rank);
+        certificate.setGrade(rank);
         certificate.setExaminer(examiner);
         certificate.setDate(date);
 
@@ -60,7 +60,7 @@ public class CertificateService {
             certificate.setDate(DateUtil.stringToDate(info.get(3)));   // 时间-证书时间
             certificate.setInstitution(info.get(4));   // 发证机构
             certificate.setNumber(info.get(5));
-            certificate.setRank(info.get(6));
+            certificate.setGrade(info.get(6));
             certificateDAO.insertCertificate(certificate);
         }
         if (certNum == list.size()) {
@@ -85,7 +85,7 @@ public class CertificateService {
             add("number");
             add("name");
             add("gender");
-            add("rank");
+            add("grade");
             add("birthday");
             add("examiner");
             add("date");

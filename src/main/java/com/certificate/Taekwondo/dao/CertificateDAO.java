@@ -13,7 +13,7 @@ public interface CertificateDAO {
 
     // 插入整条数据
     @Insert({"insert into", TABLE_NAME, "(", INSERT_FIELDS,
-            ") values (#{number}, #{name}, #{institution}, #{rank}, #{birthday}, #{examiner}, #{date})"})
+            ") values (#{number}, #{name}, #{institution}, #{grade}, #{birthday}, #{examiner}, #{date})"})
     int insertCertificate(Certificate certificate);
 
     // 根据证书编号查询

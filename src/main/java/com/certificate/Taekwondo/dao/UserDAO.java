@@ -5,6 +5,7 @@ import com.certificate.Taekwondo.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Service;
 
 @Mapper
 public interface UserDAO {
@@ -20,4 +21,7 @@ public interface UserDAO {
     // 查找
     @Select({"select", SELECT_FIELDS, "from", TABLE_NAME, "where username=#{useranme}"})
     User selectUserByUsername(String username);
+
+    @Select({"select", SELECT_FIELDS, "from", TABLE_NAME, "where id=#{id}"})
+    User selectUserById(int id);
 }

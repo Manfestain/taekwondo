@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="zh">
- 
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>跆拳道九段联盟-管理页</title>
+        <link rel="shortcut  icon" type="image/x-icon" href="../images/icon/icon.ico" media="screen"  />
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js"></script>
+        <link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../styles/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="../styles/style.css">
+        <link href="../styles/cdn-boot-font-awesome.min.css" rel="stylesheet">
     </head>
- 
     <body>
-        <!--<form action="/upload/" enctype="multipart/form-data" method="post" id="addCommodityForm">-->
-            <!--<input type="file" name="excel_file" class="input">-->
-            <!--<button class="sign-button submit" type="submit" onclick="form=document.getElementById('addCommodityForm');form.action='/upload/'">上传</button>-->
+        <div class="page_header hidden-xs" style="background: #00aa9a ">
+            <div class="container" >
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page_logo" style="color:#004aa0">
+                            <div class="logo"> <img class="" src="../images/logo.png" /> </div>
+                            <div class="title">
+                                <h1 style="color: #ffffff">跆拳道九段联盟</h1>
+                                <p style="color: #ffffff;">OFFICIAL WEBSITE OF TAEKWONDO NINE DAN FEDERATION </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <!--</form>-->
         <form action="/upload/" enctype="multipart/form-data" method="post">
             <input type="file" name="excel_file" class="input">
             <button class="btn btn-primary" type="submit">上传</button>

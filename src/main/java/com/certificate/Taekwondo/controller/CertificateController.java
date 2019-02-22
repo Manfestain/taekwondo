@@ -2,6 +2,7 @@ package com.certificate.Taekwondo.controller;
 
 import com.certificate.Taekwondo.model.Certificate;
 import com.certificate.Taekwondo.service.CertificateService;
+import com.certificate.Taekwondo.utils.ImageUtil;
 import com.certificate.Taekwondo.utils.PDFUtil;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfStamper;
@@ -36,9 +37,15 @@ public class CertificateController {
     }
 
     // 处理查询证书请求
-    @RequestMapping(value = {"/certshow"}, method = {RequestMethod.POST})
+    @RequestMapping(value = {"/certshow/"}, method = {RequestMethod.POST})
     public String showCertQueryResult(Model model,
                                       @RequestParam("certId") String certId) {
+        Certificate certificate = certificateService.selectCertificateByNumber(certId);
+        if(certificate != null) {
+
+        } else {
+            model.addAttribute("msg", "无相关结果，请核对证书编号重新查询！");
+        }
 //        Map<String, Object> map = certificateService.selectCertificateByNumber(certId);
 //        if(map.get("msg").equals("success")) {
 //            model.addAttribute("certificate", map.get("certificate"));
@@ -55,12 +62,12 @@ public class CertificateController {
         model.addAttribute("certId", number);
         return "qrcertshow";
     }
-    @RequestMapping(value = {"/showPdf/{certId}"}, method = {RequestMethod.GET})
+    @RequestMapping(value = {"/cert/show/{certId}"}, method = {RequestMethod.GET})
     @ResponseBody
     public void getPdfStream(@PathVariable("certId") String number,
                              HttpServletResponse response) {
         Certificate certificate = certificateService.selectCertificateByNumber(number);
-        byte[] bytes= PDFUtil.createCertPDF(certificate, number);
+        byte[] bytes= ImageUtil.pressText(certificate);
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
         try {
             BufferedImage bufferedImage = ImageIO.read(byteArrayInputStream);

@@ -43,7 +43,7 @@ public class PDFUtil {
             pdfContentByte.setColorFill(baseColor);
 
             pdfContentByte.setTextMatrix(100, 100);   // 级位
-            pdfContentByte.showText(certificate.getRank());
+            pdfContentByte.showText(certificate.getGrade());
             pdfContentByte.setTextMatrix(100, 200);   // 姓名
             pdfContentByte.showText(certificate.getName());
             pdfContentByte.setTextMatrix(100, 300);   // 性别
@@ -78,7 +78,7 @@ public class PDFUtil {
         certificate.setName("汪涵与");
         certificate.setInstitution("易道天下武道教育");
         certificate.setNumber("WHY120988943623");
-        certificate.setRank("六级");
+        certificate.setGrade("六级");
         certificate.setBirthday(new Date());
         certificate.setDate(new Date());
         certificate.setExaminer("谭文强");

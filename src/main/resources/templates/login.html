@@ -5,19 +5,21 @@
     <title>跆拳道九段联盟-管理页</title>
     <link rel="shortcut  icon" type="image/x-icon" href="../images/icon/icon.ico" media="screen"  />
     <link rel="stylesheet" type="text/css" href="../styles/login.css"/>
-    <script type="text/javascript" src="../scripts/login.js"></script>
 </head>
  
 <body>
 <div id="login_frame">
     <p id="image_logo"><img src="../images/logo.png" height="120" ></p>
-    <form method="post" action="/login/">
- 
-        <p><label class="label_input">用户名</label><input type="text" id="username" class="text_field"/></p>
-        <p><label class="label_input">密码</label><input type="text" id="password" class="text_field"/></p>
- 
+    <form id="loginform" method="post">
+        <#if msg ??>
+            <p style="color: #ff0000;">${msg}</p>
+        </#if>
+        <p><label class="label_input">用户名</label>
+            <input type="text" id="username" name="username" class="text_field"/></p>
+        <p><label class="label_input">密码</label>
+            <input type="password" id="password" name="password" class="text_field"/></p>
         <div id="login_control" align="center">
-            <input type="button" id="btn_login" value="登录" onclick="login();"/>
+            <button id="btn_login" type="submit" onclick="form=document.getElementById('loginform');form.action='/login/'">登录</button>
         </div>
     </form>
 </div>

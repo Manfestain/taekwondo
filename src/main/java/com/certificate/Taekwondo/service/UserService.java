@@ -36,6 +36,10 @@ public class UserService {
         Map<String, String> map = new HashMap<String, String>();
         User user = userDAO.selectUserByUsername(username);
 
+        if(user == null) {
+            map.put("msg", "用户不存在");
+            return map;
+        }
         if(StringUtils.isEmpty(username)) {
             map.put("msg", "用户名不能为空");
             return  map;
@@ -50,8 +54,11 @@ public class UserService {
         }
 
         String ticket = loginTicketService.updateUserTicket(user.getId());
-        map.put("tikcet", ticket);
-        System.out.println(ticket);
+        map.put("ticket", ticket);
+        System.out.println(user.getUsername());
+        System.out.println(user.getSalt());
+        System.out.println(user.getPassword());
+        System.out.println(MD5Util.MD5(password + user.getSalt()));
 
         return map;
     }

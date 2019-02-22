@@ -35,17 +35,4 @@ public class IndexController {
         return "organization";
     }
 
-    @RequestMapping(path = {"/file/"}, method = {RequestMethod.GET})
-    public String file(Model model) {
-        return "uploadfile";
-    }
-
-    @RequestMapping(path = {"/upload/"}, method = {RequestMethod.POST})
-    public String uploadFile(Model model,
-                             @RequestParam("excel_file") MultipartFile excelFile) {
-        Map<String, String> map = certificateService.addExcelCertificate(excelFile);
-        model.addAttribute("map", map);
-        return "about";
-    }
-
 }

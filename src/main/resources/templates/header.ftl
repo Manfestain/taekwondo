@@ -19,7 +19,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="page_logo">
-          <div class="logo"> <img class="" src="../images/logo.jpg" /> </div>
+          <div class="logo"> <img class="" src="../images/logo.png" /> </div>
           <div class="title">
             <h1>跆拳道九段联盟</h1>
             <p>OFFICIAL WEBSITE OF TAEKWONDO NINE DAN FEDERATION </p>
