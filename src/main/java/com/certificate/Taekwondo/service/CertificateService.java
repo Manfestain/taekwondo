@@ -77,6 +77,12 @@ public class CertificateService {
         return certificate;
     }
 
+    // 根据姓名查询
+    public List<Certificate> selectCertificateByName(String name) {
+        List<Certificate> certificates = certificateDAO.selectCertificateByName(name);
+        return certificates;
+    }
+
     // 更新证书信息（单个字段）
     public Map<String, String> updateCertificateSingle(String updateFields,
                                                  Object updateValue,

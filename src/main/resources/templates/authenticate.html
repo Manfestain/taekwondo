@@ -14,13 +14,13 @@
           <hr/> -->
           <div class="section">
             <div class="section_tit">
-              <h3>级位查询</h3>
+              <h3>${vo.dir1}</h3>
             </div>
               <div class="section_ctt row">
                 <div class="col-md-1 tabs_ctt"></div>
                 <div class="col-md-10 tabs_ctt">
                   <div class="certificate_wrap">
-                    <h4 class="text-center text-primary">级位查询</h4><br>
+                    <h4 class="text-center text-primary">${vo.name1}</h4><br>
                     <form class="form-horizontal">
                       <div class="form-group">
                         <label for="" class="col-md-2 control-label">证书编号</label>
@@ -28,14 +28,14 @@
                           <input type="text" class="form-control" id="certidinput"  placeholder="请输入证书编号">
                         </div>
                         <div class="col-md-2">
-                          <button type="button" class="btn btn-success" onclick="getcertimg()">查询</button>
+                          <button type="button" class="btn btn-success" onclick="${vo.action}">查询</button>
                         </div>
                       </div>
                     </form>
 
                     <hr />
 
-                    <h4 class="text-center text-primary">级位查询结果</h4><br>
+                    <h4 class="text-center text-primary">${vo.name2}</h4><br>
                       <form class="form-certresult">
                         <img id="certimgid" width="100%" />
                       </form>

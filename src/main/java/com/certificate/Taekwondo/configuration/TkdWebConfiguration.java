@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.*;
 
-@Configuration
+@Component
 public class TkdWebConfiguration extends WebMvcConfigurationSupport {
     @Autowired
     PassportInterceptor passportInterceptor;
@@ -31,3 +31,20 @@ public class TkdWebConfiguration extends WebMvcConfigurationSupport {
         super.addInterceptors(registry);
     }
 }
+
+//@Component
+//public class TkdWebConfiguration extends WebMvcConfigurerAdapter {
+//    @Autowired
+//    PassportInterceptor passportInterceptor;
+//
+//    @Autowired
+//    LoginRequredInterceptor loginRequredInterceptor;
+//
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(passportInterceptor);
+//        registry.addInterceptor(loginRequredInterceptor).addPathPatterns("/admin/*");
+//        super.addInterceptors(registry);
+//    }
+//}
+

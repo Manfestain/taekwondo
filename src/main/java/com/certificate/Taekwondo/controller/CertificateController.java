@@ -1,6 +1,7 @@
 package com.certificate.Taekwondo.controller;
 
 import com.certificate.Taekwondo.model.Certificate;
+import com.certificate.Taekwondo.model.ViewObject;
 import com.certificate.Taekwondo.service.CertificateService;
 import com.certificate.Taekwondo.utils.ImageUtil;
 import com.certificate.Taekwondo.utils.PDFUtil;
@@ -33,7 +34,12 @@ public class CertificateController {
     // 处理查询证书页面请求
     @RequestMapping(value = {"/certquery/"}, method = {RequestMethod.GET})
     public String showCertQueryPages(Model model) {
-        model.addAttribute("msg", "this is certQuery");
+        ViewObject vo = new ViewObject();
+        vo.set("dir1", "级位查询");
+        vo.set("name1", "级位查询");
+        vo.set("name2", "级位查询结果");
+        vo.set("action", "getcertimg()");
+        model.addAttribute("vo", vo);
         return "authenticate";
     }
 

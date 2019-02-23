@@ -1,5 +1,7 @@
 package com.certificate.Taekwondo.controller;
 
+import com.certificate.Taekwondo.model.Certificate;
+import com.certificate.Taekwondo.model.ViewObject;
 import com.certificate.Taekwondo.service.CertificateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.swing.text.View;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -138,12 +143,36 @@ public class ManageController {
         return "adform_validation";
     }
 
-//    @RequestMapping(value ={""}, method = {RequestMethod.GET})
-//    public String showNameCerts(Model model) {
-//        re
-//    }
-//    @RequestMapping(value ={""}, method = {RequestMethod.GET})
-//    public String showNumberCerts(Model model) {
-//
-//    }
+    @RequestMapping(value ={"/admin/searchnumber/"}, method = {RequestMethod.GET})
+    public String showSearchNumberCerts(Model model,
+                                  @RequestParam("certcode") String code) {
+        Certificate certificate = certificateService.selectCertificateByNumber(code);
+        if(certificate != null) {
+            List<ViewObject> vos = new ArrayList<ViewObject>();
+            ViewObject vo = new ViewObject();
+            vo.set("cert", certificate);
+            vos.add(vo);
+            model.addAttribute("vos", vos);
+        } else {
+            model.addAttribute("msg", "查找无结果");
+        }
+        return "adtables_dynamic";
+    }
+    @RequestMapping(value ={"/admin/searchname/"}, method = {RequestMethod.GET})
+    public String showSearchNameCerts(Model model,
+                                      @RequestParam("certcode") String code) {
+        List<Certificate> certificateList = certificateService.selectCertificateByName(code);
+        if(!certificateList.isEmpty()) {
+            List<ViewObject> vos = new ArrayList<ViewObject>();
+            for(Certificate certificate : certificateList) {
+                ViewObject vo = new ViewObject();
+                vo.set("cert", certificate);
+                vos.add(vo);
+            }
+            model.addAttribute("vos", vos);
+        } else {
+            model.addAttribute("msg", "查询无结果");
+        }
+        return "adtables_dynamic";
+    }
 }
