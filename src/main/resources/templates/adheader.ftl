@@ -10,6 +10,7 @@
     <title>跆拳道九段联盟-管理页</title>
 
     <!-- Bootstrap -->
+    <link rel="shortcut  icon" type="image/x-icon" href="../../images/icon/icon.ico" media="screen"  />
     <link href="../venstyles/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="../venstyles/font-awesome.min.css" rel="stylesheet">
@@ -35,7 +36,7 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>跆拳道九段联盟</span></a>
+                    <a href="/admin/home/" class="site_title"> <span>跆拳道九段联盟</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -43,7 +44,7 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        <img src="../../images/logo.png" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>欢迎，</span>
@@ -113,8 +114,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/img.jpg" alt="">John Doe
-                                <span class=" fa fa-angle-down"></span>
+                                John Doe
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
                                 <li><a href="#">帮助</a></li>

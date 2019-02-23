@@ -77,8 +77,8 @@ public class CertificateService {
         return certificate;
     }
 
-    // 更新证书信息
-    public Map<String, String> updateCertificate(String updateFields,
+    // 更新证书信息（单个字段）
+    public Map<String, String> updateCertificateSingle(String updateFields,
                                                  Object updateValue,
                                                  int id) {
         List<String> tableFileds = new ArrayList<String>(){{
@@ -93,13 +93,34 @@ public class CertificateService {
         Map<String, String> map = new HashMap<String, String>();
 
         if(tableFileds.contains(updateFields)) {
-            certificateDAO.updateCertificateById(id, updateFields, updateValue);
+            certificateDAO.updateCertificateSingleById(id, updateFields, updateValue);
             map.put("msg", "信息更新成功");
             return map;
         }
 
         map.put("msg", "信息更新出错");
         return map;
+    }
+
+    //更新证书
+    public Map<String, String> updateCertificate(String name,
+                                                 String number,
+                                                 String institution,
+                                                 Date birthday,
+                                                 String rank,
+                                                 String examiner,
+                                                 Date date) {
+
+        Map<String, String> map = new HashMap<String, String>();
+        certificateDAO.updateCertificateById(number, name, rank, birthday, examiner, date, institution);
+        map.put("msg", "信息更新成功");
+        return map;
+    }
+
+    // 统计
+    public int countCertNumber() {
+        int count = certificateDAO.countAllData();
+        return count;
     }
 
 }
