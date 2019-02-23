@@ -1,5 +1,6 @@
 package com.certificate.Taekwondo.service;
 
+import com.certificate.Taekwondo.dao.LoginTicketDAO;
 import com.certificate.Taekwondo.dao.UserDAO;
 import com.certificate.Taekwondo.model.User;
 import com.certificate.Taekwondo.utils.MD5Util;
@@ -15,6 +16,9 @@ import java.util.UUID;
 public class UserService {
     @Autowired
     UserDAO userDAO;
+
+    @Autowired
+    LoginTicketDAO loginTicketDAO;
 
     @Autowired
     LoginTicketService loginTicketService;
@@ -61,5 +65,9 @@ public class UserService {
         System.out.println(MD5Util.MD5(password + user.getSalt()));
 
         return map;
+    }
+
+    public void logout(String ticket) {
+        loginTicketDAO.updateStatusCode(ticket, 1);
     }
 }

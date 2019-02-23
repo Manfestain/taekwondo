@@ -26,4 +26,8 @@ public interface LoginTicketDAO {
                       @Param("expired") Date expired,
                       @Param("userId") int userId);
 
+    @Update({"update", TABLE_NAME, "set status=#{status} where ticket=#{ticket}"})
+    void updateStatusCode(@Param("ticket") String ticket,
+                      @Param("status") int status);
+
 }

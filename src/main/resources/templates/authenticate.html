@@ -25,20 +25,19 @@
                       <div class="form-group">
                         <label for="" class="col-md-2 control-label">证书编号</label>
                         <div class="col-md-8">
-                          <input type="text" class="form-control" id="userno1" placeholder="请输入证书编号">
+                          <input type="text" class="form-control" id="certidinput"  placeholder="请输入证书编号">
                         </div>
                         <div class="col-md-2">
-                          <button type="button" class="btn btn-success" id="button1">查询</button>
+                          <button type="button" class="btn btn-success" onclick="getcertimg()">查询</button>
                         </div>
                       </div>
                     </form>
-                    <div class="msg_errors text-center text-danger bg-danger" id="danger1" style="display:none;">未找到相关信息！</div>
-                    
+
                     <hr />
 
                     <h4 class="text-center text-primary">级位查询结果</h4><br>
                       <form class="form-certresult">
-                        <img id="certimgid" width="100%" src="../images/certificate.jpg"/>
+                        <img id="certimgid" width="100%" />
                       </form>
                   </div>
                 </div>
@@ -52,6 +51,14 @@
   </div>
 
 <#include "./footer.ftl">
+<script language="javascript">
+  function getcertimg(){
+      var certId = document.getElementById('certidinput').value;
+      var certurl = '/cert/show/' + certId;
+      image = document.getElementById('certimgid');
+      image.src = certurl;
+  }
+</script>
 <script src="../scripts/jquery-1.12.4.min.js"></script>
 <script src="../scripts/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script src="../scripts/bootstrap-hover-dropdown.min.js"></script>

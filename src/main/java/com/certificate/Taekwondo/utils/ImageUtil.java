@@ -3,6 +3,7 @@ package com.certificate.Taekwondo.utils;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 
 import javax.imageio.ImageIO;
@@ -18,10 +19,19 @@ public class ImageUtil {
     private static int fontStyle = Font.PLAIN;
     private static int fontSize = 20;
 
+//    public static byte[] incorrectImg() {
+//        byte[] filebytes = null;
+//        try {
+//            File file = new File(incorrectTemplatePath);
+//            filebytes = Files.readAllBytes(file.toPath());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return filebytes;
+//    }
 
     // 根据图片模板，填充对应证书信息, 返回字节流
     public static byte[] pressText(Certificate certificate) {
-        System.out.println(certificate.getName());
         Color color = new Color(89, 89, 89);
         File imgFile = new File(templatePath);   // 加载图片模板
         Image sources = null;
@@ -79,10 +89,11 @@ public class ImageUtil {
 //        try {
 //            byteArrayOutputStream = new ByteArrayOutputStream();
 //            byte[] bytes = ImageUtil.pressText("IT小奋斗", 10, 30);
+//            byte[] bytes = ImageUtil.incorrectImg();
 //            ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
 //            BufferedImage bi1 = ImageIO.read(bais);
-//            File file2 = new File("d:/result.jpg");
-//            ImageIO.write(bi1, "jpg", file2);
+//            File file2 = new File("d:/result.png");
+//            ImageIO.write(bi1, "png", file2);
 //
 //        } catch (IOException e) {
 //            e.printStackTrace();

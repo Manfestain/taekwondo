@@ -61,21 +61,21 @@
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-edit"></i>新闻<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="form_upload.html">添加</a></li>
-                                    <li><a href="tables_dynamic.html">目录</a></li>
+                                    <li><a href="/admin/news_add/">添加</a></li>
+                                    <li><a href="/admin/news_talbes/">目录</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-desktop"></i>成员<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="form_validation.html">添加</a></li>
-                                    <li><a href="media_gallery.html">成员目录</a></li>
+                                    <li><a href="/admin/person_add/">添加</a></li>
+                                    <li><a href="/admin/person_gallery/">成员目录</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-table"></i>证书<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="form_validation.html">添加</a></li>
-                                    <li><a href="form.html">批量添加</a></li>
-                                    <li><a href="tables_dynamic.html">目录</a></li>
+                                    <li><a href="/admin/cert_add/">添加</a></li>
+                                    <li><a href="/admin/cert_adds/">批量添加</a></li>
+                                    <li><a href="/admin/cert_tables/">目录</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -118,7 +118,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
                                 <li><a href="#">帮助</a></li>
-                                <li><a href="login.html">注销</a></li>
+                                <li><a href="/logout/">注销</a></li>
                             </ul>
                         </li>
                     </ul>

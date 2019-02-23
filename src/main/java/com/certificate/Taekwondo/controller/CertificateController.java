@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.nio.file.Files;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -36,25 +37,6 @@ public class CertificateController {
         return "authenticate";
     }
 
-    // 处理查询证书请求
-    @RequestMapping(value = {"/certshow/"}, method = {RequestMethod.POST})
-    public String showCertQueryResult(Model model,
-                                      @RequestParam("certId") String certId) {
-        Certificate certificate = certificateService.selectCertificateByNumber(certId);
-        if(certificate != null) {
-
-        } else {
-            model.addAttribute("msg", "无相关结果，请核对证书编号重新查询！");
-        }
-//        Map<String, Object> map = certificateService.selectCertificateByNumber(certId);
-//        if(map.get("msg").equals("success")) {
-//            model.addAttribute("certificate", map.get("certificate"));
-//        }else {
-//            model.addAttribute("msg", "无查询结果，请核对证书编号重新查询！");
-//        }
-        return "";
-    }
-
     // 处理二维码请求
     @RequestMapping(value = {"/cert/{certnumber}"}, method = {RequestMethod.GET})
     public String showQRcodeResult(Model model,
@@ -62,12 +44,25 @@ public class CertificateController {
         model.addAttribute("certId", number);
         return "qrcertshow";
     }
-    @RequestMapping(value = {"/cert/show/{certId}"}, method = {RequestMethod.GET})
+
+    // 处理查询证书请求
+    @RequestMapping(value = {"/cert/show/{certnumber}"}, method = {RequestMethod.GET})
     @ResponseBody
-    public void getPdfStream(@PathVariable("certId") String number,
-                             HttpServletResponse response) {
+    public void showCertQueryResult(@PathVariable("certnumber") String number,
+                                    HttpServletResponse response) {
+        String incorrectTemplatePath = "d:/incorrect.png";
         Certificate certificate = certificateService.selectCertificateByNumber(number);
-        byte[] bytes= ImageUtil.pressText(certificate);
+        byte[] bytes = null;
+        if(certificate == null) {
+            try {
+                File file = new File(incorrectTemplatePath);
+                bytes = Files.readAllBytes(file.toPath());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            bytes = ImageUtil.pressText(certificate);
+        }
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
         try {
             BufferedImage bufferedImage = ImageIO.read(byteArrayInputStream);
@@ -84,7 +79,7 @@ public class CertificateController {
         } catch (Exception e) {
             e.getMessage();
         }
-
     }
+
 
 }
