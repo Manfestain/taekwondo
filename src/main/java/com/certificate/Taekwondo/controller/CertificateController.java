@@ -50,16 +50,10 @@ public class CertificateController {
     @ResponseBody
     public void showCertQueryResult(@PathVariable("certnumber") String number,
                                     HttpServletResponse response) {
-        String incorrectTemplatePath = "d:/incorrect.png";
         Certificate certificate = certificateService.selectCertificateByNumber(number);
         byte[] bytes = null;
         if(certificate == null) {
-            try {
-                File file = new File(incorrectTemplatePath);
-                bytes = Files.readAllBytes(file.toPath());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            bytes = ImageUtil.incorrectImg();
         } else {
             bytes = ImageUtil.pressText(certificate);
         }

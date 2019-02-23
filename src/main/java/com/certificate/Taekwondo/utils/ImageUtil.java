@@ -15,20 +15,21 @@ import com.sun.image.codec.jpeg.JPEGImageEncoder;
 // 通过对证书的图片模板操作，生成证书图片
 public class ImageUtil {
     private static String templatePath = "d:\\certmodel.jpg";
+    private static String incorrectTemplatePath = "d:/incorrect.png";
     private static String fontName = "微软雅黑";
     private static int fontStyle = Font.PLAIN;
     private static int fontSize = 20;
 
-//    public static byte[] incorrectImg() {
-//        byte[] filebytes = null;
-//        try {
-//            File file = new File(incorrectTemplatePath);
-//            filebytes = Files.readAllBytes(file.toPath());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return filebytes;
-//    }
+    public static byte[] incorrectImg() {
+        byte[] filebytes = null;
+        try {
+            File file = new File(incorrectTemplatePath);
+            filebytes = Files.readAllBytes(file.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return filebytes;
+    }
 
     // 根据图片模板，填充对应证书信息, 返回字节流
     public static byte[] pressText(Certificate certificate) {
