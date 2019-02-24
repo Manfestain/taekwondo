@@ -1,9 +1,11 @@
 package com.certificate.Taekwondo.dao;
 
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+@Component
 @Mapper
 public interface LoginTicketDAO {
     String TABLE_NAME = "login_ticket";

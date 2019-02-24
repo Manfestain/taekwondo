@@ -37,7 +37,7 @@ public class AdminController {
             Map<String, String> map = userService.login(username, password);
             if(map.containsKey("ticket")) {
                 Cookie cookie = new Cookie("ticket", map.get("ticket"));
-//                cookie.setPath("/");
+                cookie.setPath("/");
                 response.addCookie(cookie);
                 model.addAttribute("ticket", map.get("ticket"));
                 return "redirect:/admin/home/";
