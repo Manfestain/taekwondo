@@ -98,10 +98,10 @@ public class ManageController {
         }
 
         Map<String, String> map = certificateService.addSingleCertificate(name, number, institution, dateb, grade, examiner, dated);
-        if(map.get("msg").equals("证书信息录入完成")) {
+        if(map.get("msg").equals("success")) {
             model.addAttribute("msg", map.get("msg"));
         } else {
-            model.addAttribute("msg", "证书添加失败！");
+            model.addAttribute("msg", "error");
         }
         return "adform_validation";
     }
@@ -135,17 +135,17 @@ public class ManageController {
         }
 
         Map<String, String> map = certificateService.updateCertificate(name, number, institution, dateb, grade, examiner, dated);
-        if(map.get("msg").equals("信息更新成功")) {
+        if(map.get("msg").equals("success")) {
             model.addAttribute("msg", map.get("msg"));
         } else {
-            model.addAttribute("msg", "证书更新失败！");
+            model.addAttribute("msg", "error");
         }
         return "adform_validation";
     }
 
-    @RequestMapping(value ={"/admin/searchnumber/"}, method = {RequestMethod.GET})
+    @RequestMapping(value ={"/admin/searchnumber/"}, method = {RequestMethod.POST})
     public String showSearchNumberCerts(Model model,
-                                  @RequestParam("certcode") String code) {
+                                        @RequestParam("certcode") String code) {
         Certificate certificate = certificateService.selectCertificateByNumber(code);
         if(certificate != null) {
             List<ViewObject> vos = new ArrayList<ViewObject>();
@@ -158,7 +158,7 @@ public class ManageController {
         }
         return "adtables_dynamic";
     }
-    @RequestMapping(value ={"/admin/searchname/"}, method = {RequestMethod.GET})
+    @RequestMapping(value ={"/admin/searchname/"}, method = {RequestMethod.POST})
     public String showSearchNameCerts(Model model,
                                       @RequestParam("certcode") String code) {
         List<Certificate> certificateList = certificateService.selectCertificateByName(code);

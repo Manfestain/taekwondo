@@ -40,7 +40,7 @@ public class AdminController {
 //                cookie.setPath("/");
                 response.addCookie(cookie);
                 model.addAttribute("ticket", map.get("ticket"));
-                return "redirect:/admin/file/";
+                return "redirect:/admin/home/";
             } else {
                 model.addAttribute("msg", map.get("msg"));
                 return "login";

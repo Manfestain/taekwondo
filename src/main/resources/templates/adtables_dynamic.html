@@ -8,15 +8,16 @@
             </div>
 
             <div class="title_right">
-                <form id="searchcertbynumber" class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="certcode" placeholder="Search for...">
-                        <span class="input-group-btn">
-                          <button class="btn btn-default" type="button" onclick="form=document.getElementById('searchcertbynumber');form.action='/admin/searchnumber/'">编号搜索</button>
-                          <button class="btn btn-default" type="button" onclick="form=document.getElementById('searchcertbynumber');form.action='/admin/searchname/'">姓名搜索</button>
-                        </span>
+
+                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                              <button class="btn btn-default" type="button">Go!</button>
+                          </span>
+                        </div>
                     </div>
-                </form>
+
             </div>
         </div>
 
@@ -25,6 +26,21 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
+                    <form class="form-horizontal form-label-left" method="post" id="searchcertbynumber" novalidate>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">查询<span class="required">：</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="certcode" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="certcode" required="required" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-3">
+                                <button id="send" type="submit" class="btn btn-success" onclick="form=document.getElementById('searchcertbynumber');form.action='/admin/searchnumber/'">编号查询</button>
+                                <button type="submit" class="btn btn-primary" onclick="form=document.getElementById('searchcertbynumber');form.action='/admin/searchname/'">姓名查询</button>
+                            </div>
+                        </div>
+                    </form>
                     <div class="x_title">
                         <h2>目录<small></small></h2>
                         <div class="clearfix"></div>
@@ -40,24 +56,31 @@
                                 <th>考官</th>
                                 <th>发证道馆</th>
                                 <th>发证日期</th>
-                                <th>修改</th>
+                                <th>备注</th>
                             </tr>
                             </thead>
+
+                            <#if vos ??>
+                                <#list vos as vo>
+                                    <tbody>
+                                    <tr>
+                                    <td>${vo.cert.number}</td>
+                                    <td>${vo.cert.name}</td>
+                                    <td>${vo.cert.grade}</td>
+                                    <td>${vo.cert.birthday?string('yyyy-MM-dd')}</td>
+                                    <td>${vo.cert.examiner}</td>
+                                    <td>${vo.cert.institution}</td>
+                                    <td>${vo.cert.date?string('yyyy-MM-dd')}</td>
+                                    <td>无</td>
+                                    </tr>
+                                    </tbody>
+                                </#list>
+
+                            </#if>
                             <#if msg ??>
-                                <div class="certresultid" style="color: #3CB371;font-size: 20px">${msg}</div>
-                            <#else>
                                 <tbody>
                                 <tr>
-                                    <#if vos ??>
-                                        <td>${vos.vo.cert.number}</td>
-                                        <td>${vos.vo.cert.name}</td>
-                                        <td>${vos.vo.cert.grade}</td>
-                                        <td>${vos.vo.cert.birthday}</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                        <td>2019-09-20</td>
-                                        <td>无</td>
-                                    </#if>
+                                    <td><div class="certresultid" style="color: #FF0000;font-size: 20px">${msg}</div></td>
                                 </tr>
                                 </tbody>
                             </#if>

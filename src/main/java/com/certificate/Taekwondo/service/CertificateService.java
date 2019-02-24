@@ -27,18 +27,30 @@ public class CertificateService {
                                               String examiner,
                                               Date date) {
         Map<String, String> map = new HashMap<String, String>();
-        Certificate certificate = new Certificate();
-        certificate.setNumber(number);
-        certificate.setName(name);
-        certificate.setInstitution(institution);
-        certificate.setBirthday(birthday);
-        certificate.setGrade(rank);
-        certificate.setExaminer(examiner);
-        certificate.setDate(date);
+        try {
+            Certificate certificate = new Certificate();
+            Certificate cert = certificateDAO.selectCertificateByNumber(number);
+            if(cert != null) {
+                map.put("msg", "error");
+                System.out.println("添加单个这个念书有错，证书编号存在");
+                return map;
+            }
+            certificate.setNumber(number);
+            certificate.setName(name);
+            certificate.setInstitution(institution);
+            certificate.setBirthday(birthday);
+            certificate.setGrade(rank);
+            certificate.setExaminer(examiner);
+            certificate.setDate(date);
+            System.out.println("有没有继续执行");
 
-        certificateDAO.insertCertificate(certificate);
-        map.put("msg", "证书信息录入完成");
-        return map;
+            certificateDAO.insertCertificate(certificate);
+            map.put("msg", "success");
+            return map;
+        } catch (Exception e) {
+            map.put("msg", "error");
+            return map;
+        }
     }
 
     // 添加多个证书信息
@@ -47,28 +59,35 @@ public class CertificateService {
         List<List> list = ExcelUtil.readExcel(file);
         Certificate certificate = new Certificate();
         int certNum;
-        for(certNum=0; certNum < list.size(); ++certNum) {
+        try {
+            for (certNum = 0; certNum < list.size(); ++certNum) {
+                List<String> info = list.get(certNum);
 
-            List<String> info = list.get(certNum);
-//            for(int i=0; i<info.size(); ++i) {
-//                System.out.println(info.get(i));
-//                System.out.println('\n');
-//            }
-            certificate.setName(info.get(0));
-            certificate.setBirthday(DateUtil.stringToDate(info.get(1)));    // 时间-出生日期
-            certificate.setExaminer(info.get(2));
-            certificate.setDate(DateUtil.stringToDate(info.get(3)));   // 时间-证书时间
-            certificate.setInstitution(info.get(4));   // 发证机构
-            certificate.setNumber(info.get(5));
-            certificate.setGrade(info.get(6));
-            certificateDAO.insertCertificate(certificate);
+                Certificate cert = certificateDAO.selectCertificateByNumber(info.get(5));
+                if(cert != null) {
+                    map.put("msg", "error");
+                    return map;
+                }
+
+                certificate.setName(info.get(0));
+                certificate.setBirthday(DateUtil.stringToDate(info.get(1)));    // 时间-出生日期
+                certificate.setExaminer(info.get(2));
+                certificate.setDate(DateUtil.stringToDate(info.get(3)));   // 时间-证书时间
+                certificate.setInstitution(info.get(4));   // 发证机构
+                certificate.setNumber(info.get(5));
+                certificate.setGrade(info.get(6));
+                certificateDAO.insertCertificate(certificate);
+            }
+            if (certNum == list.size()) {
+                map.put("msg", "success");
+            } else {
+                map.put("msg", "error");
+            }
+            return map;
+        }catch (Exception e) {
+            map.put("msg", "error");
+            return map;
         }
-        if (certNum == list.size()) {
-            map.put("msg", "添加证书信息成功！");
-        } else {
-            map.put("msg", "添加证书信息失败！");
-        }
-        return map;
     }
 
     // 根据证书编号查询证书
@@ -100,11 +119,11 @@ public class CertificateService {
 
         if(tableFileds.contains(updateFields)) {
             certificateDAO.updateCertificateSingleById(id, updateFields, updateValue);
-            map.put("msg", "信息更新成功");
+            map.put("msg", "success");
             return map;
         }
 
-        map.put("msg", "信息更新出错");
+        map.put("msg", "error");
         return map;
     }
 
@@ -118,9 +137,15 @@ public class CertificateService {
                                                  Date date) {
 
         Map<String, String> map = new HashMap<String, String>();
-        certificateDAO.updateCertificateById(number, name, rank, birthday, examiner, date, institution);
-        map.put("msg", "信息更新成功");
-        return map;
+        try {
+            certificateDAO.updateCertificateById(number, name, rank, birthday, examiner, date, institution);
+            map.put("msg", "success");
+            return map;
+        } catch (Exception e) {
+            map.put("msg", "error");
+            return map;
+        }
+
     }
 
     // 统计

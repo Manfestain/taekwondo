@@ -31,7 +31,11 @@
 
                         <form class="form-horizontal form-label-left" method="post" id="certformid" novalidate>
                             <#if msg ??>
-                                <div class="certresultid" style="color: #3CB371;font-size: 20px">${msg}</div>
+                                <#if msg == "error">
+                                    <div class="certresultid" style="color: #FF0000">操作失败！</div>
+                                <#else>
+                                        <div class="certresultid" style="color: #3CB371">操作成功！</div>
+                                </#if>
                             </#if>
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">编号<span class="required">：</span>
@@ -58,7 +62,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">发证道馆 <span class="required">：</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="number" name="institution" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="numbersd" name="institution" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">

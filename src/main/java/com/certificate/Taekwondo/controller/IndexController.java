@@ -39,6 +39,7 @@ public class IndexController {
     @ExceptionHandler
     public String error(Model model,
                         Exception e) {
+        model.addAttribute("error", e.getMessage());
         return "error";
     }
 
