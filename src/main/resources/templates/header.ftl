@@ -57,11 +57,11 @@
           <li class="menu_dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="0" data-close-others="false">会员服务 <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="/memberquery/">会员查询</a></li>
-              <li><a href="#">加盟权益</a></li>
-              <li><a href="#">会员晋级</a></li>
+              <li><a href="/memberrights/">加盟权益</a></li>
+              <li><a href="/memberpromotion/">会员晋级</a></li>
             </ul>
           </li>
-          <li class="menu_dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="0" data-close-others="false">公共服务 <span class="caret"></span></a>
+          <li class="menu_dropdown"> <a href="/" class="dropdown-toggle" data-hover="dropdown" data-delay="0" data-close-others="false">公共服务 <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="/certquery/">级位查询</a></li>
               <li><a href="#">赛事中心</a></li>

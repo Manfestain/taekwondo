@@ -50,7 +50,6 @@ public class PassportInterceptor extends HandlerInterceptorAdapter {
 
             User user = userDAO.selectUserById(loginTicket.getUserId());
             hostHolder.setUser(user);
-            System.out.println(hostHolder.getUser());
         }
         return true;
     }

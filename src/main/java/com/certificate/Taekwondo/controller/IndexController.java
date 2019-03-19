@@ -36,6 +36,17 @@ public class IndexController {
         return "organization";
     }
 
+    @RequestMapping(path = {"/memberrights/"}, method = {RequestMethod.GET})
+    public String showRightsPages(Model model) {
+        model.addAttribute("msg", "show introduce page");
+        return "memberrights";
+    }
+    @RequestMapping(path = {"/memberpromotion/"}, method = {RequestMethod.GET})
+    public String showPromotionPages(Model model) {
+        model.addAttribute("msg", "show introduce page");
+        return "memberpromotion";
+    }
+
     @ExceptionHandler
     public String error(Model model,
                         Exception e) {

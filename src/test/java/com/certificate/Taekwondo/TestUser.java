@@ -23,9 +23,7 @@ public class TestUser {
 
     @Test
     public void addUser() {
-        String username = "ninedan";
-        String password = "jiuduanlianmeng";
-        userService.addUser(username, password);
+
     }
 
 }

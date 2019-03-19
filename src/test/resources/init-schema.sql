@@ -6,11 +6,11 @@
 --   `grade` VARCHAR(128) NOT NULL,
 --   `birthday` DATETIME NOT NULL,
 --   `examiner` VARCHAR(60) NOT NULL,
---   `date` DATETIME NOT NULL,
+--   `date` DATE NOT NULL,
 --   PRIMARY KEY (`id`),
 --   UNIQUE INDEX `number_UNIQUE` (`number` ASC)
--- )ENGINE=InnoDB CHARSET=gbk;
---
+-- )ENGINE=InnoDB CHARSET=utf8;
+-- --
 -- CREATE TABLE `taekwondo`.`member` (
 --   `id` INT NOT NULL AUTO_INCREMENT,
 --   `number` VARCHAR(128) NOT NULL,
@@ -24,7 +24,7 @@
 --   PRIMARY KEY (`id`),
 --   UNIQUE INDEX `number_UNIQUE` (`number` ASC)
 -- )ENGINE=InnoDB CHARSET=gbk;
-
+--
 -- CREATE TABLE `taekwondo`.`user` (
 --   `id` INT NOT NULL AUTO_INCREMENT,
 --   `username` VARCHAR(45) NOT NULL,
@@ -33,7 +33,7 @@
 --   PRIMARY KEY (`id`),
 --   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 -- ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+--
 -- CREATE TABLE `taekwondo`.`login_ticket` (
 --   `id` INT NOT NULL AUTO_INCREMENT,
 --   `user_id` INT NOT NULL,

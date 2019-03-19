@@ -13,8 +13,8 @@ import java.nio.Buffer;
 import java.util.Date;
 
 public class PDFUtil {
-    static String fontPath = "D:/WorkSpace/JavaCode/Taekwondo/src/main/java/com/certificate/Taekwondo/utils/font/simsun.ttc,1";
-    static String templateName = "D:\\WorkSpace\\JavaCode\\Taekwondo\\src\\main\\resources\\images\\demo.pdf";
+    static String fontPath = "";
+    static String templateName = "";
     public static final String NAME = "STSong-Light";
     public static final String ENCODE = "UniGB-UCS2-H";
     public static final int SIZE = 12;

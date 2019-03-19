@@ -57,12 +57,8 @@ public class UserService {
             return map;
         }
 
-        String ticket = loginTicketService.updateUserTicket(user.getId());
+        String ticket = loginTicketService.addUserTicket(user.getId());
         map.put("ticket", ticket);
-        System.out.println(user.getUsername());
-        System.out.println(user.getSalt());
-        System.out.println(user.getPassword());
-        System.out.println(MD5Util.MD5(password + user.getSalt()));
 
         return map;
     }

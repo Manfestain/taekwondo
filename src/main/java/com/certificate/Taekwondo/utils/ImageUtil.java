@@ -9,13 +9,11 @@ import java.text.SimpleDateFormat;
 import javax.imageio.ImageIO;
 
 import com.certificate.Taekwondo.model.Certificate;
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 // 通过对证书的图片模板操作，生成证书图片
 public class ImageUtil {
-    private static String templatePath = "d:\\certmodel.jpg";
-    private static String incorrectTemplatePath = "d:/incorrect.png";
+    private static String templatePath = "/data/wwwroot/static/img/certmodel.jpg";
+    private static String incorrectTemplatePath = "/data/wwwroot/static/img/incorrect.png";
     private static String fontName = "微软雅黑";
     private static int fontStyle = Font.PLAIN;
     private static int fontSize = 20;
