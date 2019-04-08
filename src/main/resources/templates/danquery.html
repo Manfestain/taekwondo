@@ -1,0 +1,105 @@
+
+<#include "./header.ftl">
+
+    <!--/.page_menu-->
+    <div class="page_bodyer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="article_wrap">
+                        <div class="section">
+                            <div class="section_tit">
+                                <h3>${vo.dir1}</h3>
+                            </div>
+                            <div class="section_ctt row">
+                                <div class="col-md-1 tabs_ctt"></div>
+                                <div class="col-md-10 tabs_ctt">
+                                    <div class="certificate_wrap">
+                                        <h4 class="text-center text-primary">${vo.name1}</h4><br>
+                                        <form class="form-horizontal" id="dansearchForm">
+                                            <div class="form-group">
+                                                <label for="" class="col-sm-2 control-label">姓名拼音</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名拼音">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="" class="col-sm-2 control-label">身份证号</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="id_number" name="id_number" placeholder="请输入身份证号">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <button type="submit" class="btn btn-success" id="button1" onclick="form=document.getElementById('dansearchForm');form.action='/danSearch/'"> 查询</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                        <hr />
+
+                                        <h4 class="text-center text-primary">${vo.name2}</h4><br>
+                                        <#if vo.have ??>
+                                            <form class="form-horizontal">
+                                                <div class="form-group">
+                                                    <div class="col-md-4"></div>
+                                                    <div class="col-md-4">
+                                                        <img id="certimgid" width="100%" src="${vo.img}"/>
+                                                    </div>
+                                                    <div class="col-md-4"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-3"></div>
+                                                    <label for="" class="col-md-2 control-label">编号</label>
+                                                    <div class="col-md-4">
+                                                        ${vo.number}
+                                                    </div>
+                                                    <div class="col-md-3"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-3"></div>
+                                                    <label for="" class="col-md-2 control-label">姓名</label>
+                                                    <div class="col-md-4">
+                                                        ${vo.name}
+                                                    </div>
+                                                    <div class="col-md-3"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-3"></div>
+                                                    <label for="" class="col-md-2 control-label">品位/段位</label>
+                                                    <div class="col-md-4">
+                                                        ${vo.dan}
+                                                    </div>
+                                                    <div class="col-md-3"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-3"></div>
+                                                    <label for="" class="col-md-2 control-label">发证日期</label>
+                                                    <div class="col-md-4">
+                                                        ${vo.date}
+                                                    </div>
+                                                    <div class="col-md-3"></div>
+                                                </div>
+                                            </form>
+                                        </#if>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1 tabs_ctt"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <#include "./footer.ftl">
+
+        <script src="../scripts/jquery-1.12.4.min.js"></script>
+        <script src="../scripts/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <script src="../scripts/bootstrap-hover-dropdown.min.js"></script>
+        <script src="../scripts/common.js"></script>
+        </body>
+        </html>

@@ -15,4 +15,9 @@ public class NewsController {
         return "newsdir";
     }
 
+    @RequestMapping(value = {"/firstnews/"}, method = {RequestMethod.GET})
+    public String showFirstNews(Model model) {
+        return "newsdetail";
+    }
+
 }

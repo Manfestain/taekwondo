@@ -63,6 +63,7 @@
           </li>
           <li class="menu_dropdown"> <a href="/" class="dropdown-toggle" data-hover="dropdown" data-delay="0" data-close-others="false">公共服务 <span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li><a href="/danpage/">段位查询</a></li>
               <li><a href="/certquery/">级位查询</a></li>
               <li><a href="#">赛事中心</a></li>
             </ul>
